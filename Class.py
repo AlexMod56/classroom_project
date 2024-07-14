@@ -42,6 +42,9 @@ class Class(list):
     def __len__(self):
         return len(self._students)
 
+    def test_sort_by_lastname(self):
+        return sorted(self._students, key=lambda student: student.last_name)
+
     def append_func(self, student):
         self._students.append(student)
 

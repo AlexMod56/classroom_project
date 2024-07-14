@@ -1,3 +1,4 @@
+import unittest
 from Subject import Subject
 from Human import Human
 from Class import Class
@@ -69,3 +70,18 @@ print(Human.ids)
 
 classroom1.write_csv("student_table.csv")
 res_df = classroom1.read_csv("student_table.csv")
+
+###Тестирование
+class TestClassSortCheck(unittest.TestCase):
+
+    def test_sort_by_lastname(self):
+
+        sorted_students = classroom1.test_sort_by_lastname()
+
+        sorted_by_lastnames = [student.last_name for student in sorted_students]
+
+        self.assertEqual(sorted_by_lastnames, ["Miller", "Doe", "Smith", "Taylor"])# Error happened
+
+if __name__ == "__main__":
+    unittest.main()
+
